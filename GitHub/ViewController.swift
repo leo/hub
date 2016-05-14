@@ -8,12 +8,21 @@
 
 import UIKit
 
-class ViewController: UITabBarController {
+protocol MainDelegate {
+    func didLogin()
+}
+
+class ViewController: UITabBarController, MainDelegate {
     
     var loggedIn: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        appDelegate.mainView = self
+    }
+    
+    deinit {
+        events.removeObserver(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,9 +35,8 @@ class ViewController: UITabBarController {
         }
     }
     
-    func didLoginSuccessfully() {
+    func didLogin() {
         loggedIn = true
-        dismissViewControllerAnimated(true, completion: nil)
     }
     
 }

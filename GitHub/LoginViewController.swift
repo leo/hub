@@ -8,6 +8,16 @@
 
 import UIKit
 
+protocol LoginViewDelegate {
+    func hideView()
+}
+
+extension UIViewController {
+    func hideView() {
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+}
+
 extension String {
     
     func urlEncodedStringWithEncoding() -> String {
@@ -48,12 +58,13 @@ extension Dictionary {
     
 }
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, LoginViewDelegate {
     
     @IBOutlet weak var webView: UIWebView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        appDelegate.loginView = self
         
         webView.scrollView.scrollEnabled = false
         webView.scrollView.bounces = false

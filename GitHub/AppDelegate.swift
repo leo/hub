@@ -8,13 +8,27 @@
 
 import UIKit
 
+let events = NSNotificationCenter.defaultCenter()
+let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var loginView: LoginViewDelegate?
+    var welcomeView: WelcomeViewDelegate?
+    var mainView: MainDelegate?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        return true
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        mainView?.didLogin()
+        loginView?.hideView()
+        welcomeView?.hideView()
+        
         return true
     }
 
