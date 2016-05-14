@@ -58,6 +58,7 @@ class AuthorizerViewController: UIViewController {
         ]
         
         let urlString = "https://github.com/login/oauth/authorize?" + urlParts.urlEncodedQueryStringWithEncoding()
+        print(urlString)
         let url = NSURL (string: urlString)
         let requestObj = NSURLRequest(URL: url!)
         

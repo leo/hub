@@ -124,7 +124,7 @@
                                 <dataDetectorType key="dataDetectorTypes" link="YES"/>
                             </webView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="G95-oV-1ut" firstAttribute="leading" secondItem="D7B-06-2HF" secondAttribute="leadingMargin" constant="-20" id="Jkd-FR-GlB"/>
                             <constraint firstItem="pqs-v5-4P9" firstAttribute="top" secondItem="G95-oV-1ut" secondAttribute="bottom" id="bO3-3q-937"/>
