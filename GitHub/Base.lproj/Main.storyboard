@@ -140,10 +140,10 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="1715"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Login-->
         <scene sceneID="CIF-m0-2u2">
             <objects>
-                <viewController id="xNx-oa-mZY" customClass="LoginViewController" customModule="GitHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Login" id="xNx-oa-mZY" customClass="LoginViewController" customModule="GitHub" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hfZ-k6-95Y"/>
                         <viewControllerLayoutGuide type="bottom" id="eDB-CF-Pc5"/>
