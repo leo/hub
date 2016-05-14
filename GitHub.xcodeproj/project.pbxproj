@@ -13,9 +13,9 @@
 		B3CE1FA31CE740A400E339D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3CE1FA11CE740A400E339D2 /* Main.storyboard */; };
 		B3CE1FA51CE740A400E339D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3CE1FA41CE740A400E339D2 /* Assets.xcassets */; };
 		B3CE1FA81CE740A400E339D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3CE1FA61CE740A400E339D2 /* LaunchScreen.storyboard */; };
-		B3CE1FB01CE7453000E339D2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CE1FAF1CE7453000E339D2 /* LoginViewController.swift */; };
+		B3CE1FB01CE7453000E339D2 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CE1FAF1CE7453000E339D2 /* WelcomeViewController.swift */; };
 		B3CE1FB41CE74A7A00E339D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CE1FB31CE74A7A00E339D2 /* ViewController.swift */; };
-		B3CE1FBA1CE756D100E339D2 /* AuthorizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CE1FB91CE756D100E339D2 /* AuthorizerViewController.swift */; };
+		B3CE1FBA1CE756D100E339D2 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CE1FB91CE756D100E339D2 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,9 +27,9 @@
 		B3CE1FA41CE740A400E339D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3CE1FA71CE740A400E339D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3CE1FA91CE740A400E339D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B3CE1FAF1CE7453000E339D2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B3CE1FAF1CE7453000E339D2 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		B3CE1FB31CE74A7A00E339D2 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B3CE1FB91CE756D100E339D2 /* AuthorizerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorizerViewController.swift; sourceTree = "<group>"; };
+		B3CE1FB91CE756D100E339D2 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,8 +66,8 @@
 				B3CE1FB31CE74A7A00E339D2 /* ViewController.swift */,
 				B3CE1F9D1CE740A400E339D2 /* FirstViewController.swift */,
 				B3CE1F9F1CE740A400E339D2 /* SecondViewController.swift */,
-				B3CE1FAF1CE7453000E339D2 /* LoginViewController.swift */,
-				B3CE1FB91CE756D100E339D2 /* AuthorizerViewController.swift */,
+				B3CE1FAF1CE7453000E339D2 /* WelcomeViewController.swift */,
+				B3CE1FB91CE756D100E339D2 /* LoginViewController.swift */,
 				B3CE1FA11CE740A400E339D2 /* Main.storyboard */,
 				B3CE1FA61CE740A400E339D2 /* LaunchScreen.storyboard */,
 				B3CE1FA41CE740A400E339D2 /* Assets.xcassets */,
@@ -149,9 +149,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3CE1FB41CE74A7A00E339D2 /* ViewController.swift in Sources */,
-				B3CE1FB01CE7453000E339D2 /* LoginViewController.swift in Sources */,
+				B3CE1FB01CE7453000E339D2 /* WelcomeViewController.swift in Sources */,
 				B3CE1FA01CE740A400E339D2 /* SecondViewController.swift in Sources */,
-				B3CE1FBA1CE756D100E339D2 /* AuthorizerViewController.swift in Sources */,
+				B3CE1FBA1CE756D100E339D2 /* LoginViewController.swift in Sources */,
 				B3CE1F9C1CE740A400E339D2 /* AppDelegate.swift in Sources */,
 				B3CE1F9E1CE740A400E339D2 /* FirstViewController.swift in Sources */,
 			);

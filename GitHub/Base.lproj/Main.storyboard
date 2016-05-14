@@ -22,13 +22,13 @@
                                 <rect key="frame" x="221" y="279" width="157.5" height="41.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by FirstViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
                                 <rect key="frame" x="203" y="329" width="194.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -62,13 +62,13 @@
                                 <rect key="frame" x="195" y="279" width="209.5" height="41.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="36"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loaded by SecondViewController" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDk-cv-Gan">
                                 <rect key="frame" x="192" y="329" width="215.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -99,17 +99,17 @@
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                        <segue destination="xNx-oa-mZY" kind="show" identifier="showLogin" animates="NO" id="ZNX-mt-L4y"/>
+                        <segue destination="xNx-oa-mZY" kind="show" identifier="showWelcome" animates="NO" id="ZNX-mt-L4y"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
-        <!--Authorizer-->
+        <!--Login-->
         <scene sceneID="kfh-Ca-mNx">
             <objects>
-                <viewController title="Authorizer" id="zUG-P4-LiP" customClass="AuthorizerViewController" customModule="GitHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Login" id="zUG-P4-LiP" customClass="LoginViewController" customModule="GitHub" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iGD-MC-KIQ"/>
                         <viewControllerLayoutGuide type="bottom" id="pqs-v5-4P9"/>
@@ -140,10 +140,10 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="1715"/>
         </scene>
-        <!--Login-->
+        <!--Welcome-->
         <scene sceneID="CIF-m0-2u2">
             <objects>
-                <viewController title="Login" id="xNx-oa-mZY" customClass="LoginViewController" customModule="GitHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Welcome" id="xNx-oa-mZY" customClass="WelcomeViewController" customModule="GitHub" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hfZ-k6-95Y"/>
                         <viewControllerLayoutGuide type="bottom" id="eDB-CF-Pc5"/>
@@ -184,7 +184,7 @@
                     </view>
                     <connections>
                         <outlet property="submitButton" destination="oI1-eA-3GQ" id="xs8-4d-Vis"/>
-                        <segue destination="zUG-P4-LiP" kind="presentation" identifier="showAuthorizer" id="nCV-H4-B3h"/>
+                        <segue destination="zUG-P4-LiP" kind="presentation" identifier="showLogin" id="nCV-H4-B3h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aGf-df-3hQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

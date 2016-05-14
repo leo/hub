@@ -8,61 +8,71 @@
 
 import UIKit
 
-protocol LoginViewControllerDelegate {
-    func didLoginSuccessfully()
+extension String {
+    
+    func urlEncodedStringWithEncoding() -> String {
+        let allowedCharacterSet = NSCharacterSet.URLQueryAllowedCharacterSet().mutableCopy() as! NSMutableCharacterSet
+        allowedCharacterSet.removeCharactersInString("\n:#/?@!$&'()*+,;=")
+        allowedCharacterSet.addCharactersInString("[]")
+        return self.stringByAddingPercentEncodingWithAllowedCharacters(allowedCharacterSet)!
+    }
+    
+    static func random(length: Int = 20) -> String {
+        let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        var randomString: String = ""
+        
+        for _ in 0..<length {
+            let randomValue = arc4random_uniform(UInt32(base.characters.count))
+            randomString += "\(base[base.startIndex.advancedBy(Int(randomValue))])"
+        }
+        
+        return randomString
+    }
+    
 }
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+extension Dictionary {
     
-    @IBOutlet weak var submitButton: UIButton!
+    func urlEncodedQueryStringWithEncoding() -> String {
+        var parts = [String]()
+        
+        for (key, value) in self {
+            let keyString: String = "\(key)".urlEncodedStringWithEncoding()
+            let valueString: String = "\(value)".urlEncodedStringWithEncoding()
+            let query: String = "\(keyString)=\(valueString)"
+            parts.append(query)
+        }
+        
+        return parts.joinWithSeparator("&")
+    }
     
-    var delegate: LoginViewControllerDelegate?
+}
+
+class LoginViewController: UIViewController {
+    
+    @IBOutlet weak var webView: UIWebView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        webView.scrollView.scrollEnabled = false
+        webView.scrollView.bounces = false
+        
+        let urlParts: [String:String] = [
+            "client_id": "0fe88ac59c5d6d50642a",
+            "redirect_uri": "github://authenticated",
+            "state": String.random()
+        ]
+        
+        let urlString = "https://github.com/login/oauth/authorize?" + urlParts.urlEncodedQueryStringWithEncoding()
+        let url = NSURL (string: urlString)
+        let requestObj = NSURLRequest(URL: url!)
+        
+        webView.loadRequest(requestObj)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-    
-    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        let length = textField.text!.characters.count - range.length + string.characters.count
-        if length > 0 {
-            submitButton.enabled = true
-        } else {
-            submitButton.enabled = false
-        }
-        return true
-    }
-    
-
-    @IBAction func loginButtonTapped() {
-        performSegueWithIdentifier("showAuthorizer", sender: nil)
-        //UIApplication.sharedApplication().openURL(NSURL(string: "http://leo.im")!)
-        /*
-        if usernameField.text == "leo" && passwordField.text == "1234" {
-            resignFirstResponder()
-            delegate?.didLoginSuccessfully()
-        } else {
-            let alertController = UIAlertController(title: "Shit happens!", message: "The username and password combination failed.", preferredStyle: .Alert)
-            let ok = UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
-            })
-            alertController.addAction(ok)
-            presentViewController(alertController, animated: true, completion: nil)
-        }*/
-    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
