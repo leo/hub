@@ -67,11 +67,11 @@
 				B3CE1F9D1CE740A400E339D2 /* FirstViewController.swift */,
 				B3CE1F9F1CE740A400E339D2 /* SecondViewController.swift */,
 				B3CE1FAF1CE7453000E339D2 /* LoginViewController.swift */,
-				B3CE1FA11CE740A400E339D2 /* Main.storyboard */,
-				B3CE1FA41CE740A400E339D2 /* Assets.xcassets */,
-				B3CE1FA61CE740A400E339D2 /* LaunchScreen.storyboard */,
-				B3CE1FA91CE740A400E339D2 /* Info.plist */,
 				B3CE1FB91CE756D100E339D2 /* AuthorizerViewController.swift */,
+				B3CE1FA11CE740A400E339D2 /* Main.storyboard */,
+				B3CE1FA61CE740A400E339D2 /* LaunchScreen.storyboard */,
+				B3CE1FA41CE740A400E339D2 /* Assets.xcassets */,
+				B3CE1FA91CE740A400E339D2 /* Info.plist */,
 			);
 			path = GitHub;
 			sourceTree = "<group>";

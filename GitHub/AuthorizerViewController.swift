@@ -51,6 +51,9 @@ class AuthorizerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        webView.scrollView.scrollEnabled = false
+        webView.scrollView.bounces = false
+        
         let urlParts: [String:String] = [
             "client_id": "0fe88ac59c5d6d50642a",
             "redirect_uri": "github://authenticated",
@@ -58,7 +61,6 @@ class AuthorizerViewController: UIViewController {
         ]
         
         let urlString = "https://github.com/login/oauth/authorize?" + urlParts.urlEncodedQueryStringWithEncoding()
-        print(urlString)
         let url = NSURL (string: urlString)
         let requestObj = NSURLRequest(URL: url!)
         
