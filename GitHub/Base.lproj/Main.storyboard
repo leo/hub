@@ -105,6 +105,34 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
+        <!--Authorizer-->
+        <scene sceneID="kfh-Ca-mNx">
+            <objects>
+                <viewController title="Authorizer" id="zUG-P4-LiP" customClass="AuthorizerViewController" customModule="GitHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iGD-MC-KIQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="pqs-v5-4P9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="D7B-06-2HF">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G95-oV-1ut">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="G95-oV-1ut" id="956-yz-26U"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PeW-eA-tNq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="1715"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="CIF-m0-2u2">
             <objects>
@@ -117,19 +145,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JUF-Hd-v0p">
-                                <rect key="frame" x="190" y="225" width="220" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="220" id="cZT-ed-0N7"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xKc-3D-YZx">
-                                <rect key="frame" x="190" y="269" width="220" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oI1-eA-3GQ">
                                 <rect key="frame" x="281" y="326" width="38" height="30"/>
                                 <state key="normal" title="Login">
@@ -145,20 +160,13 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.95813796309999999" blue="0.12939728959999999" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="JUF-Hd-v0p" firstAttribute="centerX" secondItem="oI1-eA-3GQ" secondAttribute="centerX" id="34T-Wo-kUc"/>
                             <constraint firstItem="oI1-eA-3GQ" firstAttribute="centerX" secondItem="juW-2U-yAx" secondAttribute="centerX" id="6h8-MV-NSw"/>
-                            <constraint firstItem="JUF-Hd-v0p" firstAttribute="top" secondItem="hfZ-k6-95Y" secondAttribute="bottom" constant="205" id="CAX-uU-VmP"/>
-                            <constraint firstItem="JUF-Hd-v0p" firstAttribute="leading" secondItem="xKc-3D-YZx" secondAttribute="leading" id="OB6-I9-0VT"/>
-                            <constraint firstItem="oI1-eA-3GQ" firstAttribute="top" secondItem="xKc-3D-YZx" secondAttribute="bottom" constant="27" id="Obe-uJ-M4G"/>
-                            <constraint firstItem="xKc-3D-YZx" firstAttribute="top" secondItem="JUF-Hd-v0p" secondAttribute="bottom" constant="14" id="buM-sH-FAz"/>
-                            <constraint firstItem="JUF-Hd-v0p" firstAttribute="centerX" secondItem="juW-2U-yAx" secondAttribute="centerX" id="crJ-KU-9yS"/>
-                            <constraint firstItem="xKc-3D-YZx" firstAttribute="centerX" secondItem="juW-2U-yAx" secondAttribute="centerX" id="wFw-gz-pQg"/>
+                            <constraint firstItem="eDB-CF-Pc5" firstAttribute="top" secondItem="oI1-eA-3GQ" secondAttribute="bottom" constant="195" id="9uL-Zx-h3g"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="passwordField" destination="xKc-3D-YZx" id="Yne-Ed-Gq3"/>
                         <outlet property="submitButton" destination="oI1-eA-3GQ" id="xs8-4d-Vis"/>
-                        <outlet property="usernameField" destination="JUF-Hd-v0p" id="eqR-ui-hw2"/>
+                        <segue destination="zUG-P4-LiP" kind="presentation" identifier="showAuthorizer" id="nCV-H4-B3h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aGf-df-3hQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

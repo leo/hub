@@ -14,8 +14,6 @@ protocol LoginViewControllerDelegate {
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var usernameField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var submitButton: UIButton!
     
     var delegate: LoginViewControllerDelegate?
@@ -43,6 +41,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
 
     @IBAction func loginButtonTapped() {
+        performSegueWithIdentifier("showAuthorizer", sender: nil)
+        //UIApplication.sharedApplication().openURL(NSURL(string: "http://leo.im")!)
+        /*
         if usernameField.text == "leo" && passwordField.text == "1234" {
             resignFirstResponder()
             delegate?.didLoginSuccessfully()
@@ -52,7 +53,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             })
             alertController.addAction(ok)
             presentViewController(alertController, animated: true, completion: nil)
-        }
+        }*/
     }
     /*
     // MARK: - Navigation
