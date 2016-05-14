@@ -9,7 +9,7 @@
 import UIKit
 
 protocol MainDelegate {
-    func didLogin()
+    var loggedIn: Bool { get set }
 }
 
 class ViewController: UITabBarController, MainDelegate {
@@ -33,10 +33,6 @@ class ViewController: UITabBarController, MainDelegate {
         if loggedIn == false {
             performSegueWithIdentifier("showWelcome", sender: nil)
         }
-    }
-    
-    func didLogin() {
-        loggedIn = true
     }
     
 }

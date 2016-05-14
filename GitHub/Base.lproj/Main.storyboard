@@ -184,7 +184,7 @@
                     </view>
                     <connections>
                         <outlet property="submitButton" destination="oI1-eA-3GQ" id="xs8-4d-Vis"/>
-                        <segue destination="zUG-P4-LiP" kind="presentation" identifier="showLogin" id="nCV-H4-B3h"/>
+                        <segue destination="zUG-P4-LiP" kind="show" identifier="showLogin" id="nCV-H4-B3h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aGf-df-3hQ" userLabel="First Responder" sceneMemberID="firstResponder"/>

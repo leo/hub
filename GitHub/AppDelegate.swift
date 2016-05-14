@@ -15,8 +15,8 @@ let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var loginView: LoginViewDelegate?
-    var welcomeView: WelcomeViewDelegate?
+    var loginView: UIViewController?
+    var welcomeView: UIViewController?
     var mainView: MainDelegate?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -25,9 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        mainView?.didLogin()
-        loginView?.hideView()
-        welcomeView?.hideView()
+        mainView?.loggedIn = true
+        loginView?.dismissViewControllerAnimated(true, completion: nil)
+        welcomeView?.dismissViewControllerAnimated(true, completion: nil)
         
         return true
     }
