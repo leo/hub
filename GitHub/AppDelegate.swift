@@ -69,21 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         do {
             try connector.requestAccessToken((queryItems[0].value)!, state: (queryItems[1].value)!)
-
-            try connector.loadUser() { (json: [String : AnyObject]) in
-                guard let loginView = self.loginView else {
-                    fatalError()
-                }
-
-                self.segue = UIStoryboardSegue(identifier: "showMain", source: loginView, destination: self.mainView)
-
-                guard let segue = self.segue else {
-                    fatalError()
-                }
-
-                self.mainView.prepareForSegue(segue, sender: nil)
-                loginView.performSegueWithIdentifier("showMain", sender: json)
-            }
+            self.loginView?.performSegueWithIdentifier("showMain", sender: nil)
         } catch {
             fatalError(String(error))
         }

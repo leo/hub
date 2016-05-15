@@ -82,40 +82,40 @@ class Connector: NSObject {
         task.resume()
     }
 
-    func loadUser(completion: ((json: [String : AnyObject]) -> Void)!) throws {
-        let urlString = "https://api.github.com/user"
-        
+    func loadDataOfCurrentUser(kind: String, completion: ((data: AnyObject) -> Void)!) throws {
+        let urlString = "https://api.github.com/user/" + kind
+
         guard let url = NSURL(string: urlString) else {
             throw AuthorizingError.InvalidURL
         }
-        
-        guard let token = defaults.stringForKey("api_token") else {
+
+        guard let token = appDelegate.token else {
             throw AuthorizingError.CannotLoadToken
         }
-        
+
         let request = NSMutableURLRequest(URL: url)
         request.addValue("token " + token, forHTTPHeaderField: "Authorization")
-        
+
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data: NSData?, response: NSURLResponse?, error: NSError?) in
             guard error == nil && data != nil else {
                 fatalError("error=\(error)")
             }
-            
+
             guard let jsonString = NSString(data: data!, encoding: NSUTF8StringEncoding) as? String else {
                 fatalError()
             }
-            
+
             let jsonData = jsonString.dataUsingEncoding(NSASCIIStringEncoding, allowLossyConversion: false)
-            
+
             do {
                 let json = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers)
-                completion(json: json as! [String : AnyObject])
+                completion(data: json)
             } catch {
                 fatalError(String(error))
             }
         }
-        
+
         task.resume()
     }
-    
+
 }
