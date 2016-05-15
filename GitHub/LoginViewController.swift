@@ -33,7 +33,7 @@ extension UIViewController {
 
 extension String {
     
-    func urlEncodedStringWithEncoding() -> String {
+    func urlEncodedString() -> String {
         let allowedCharacterSet = NSCharacterSet.URLQueryAllowedCharacterSet().mutableCopy() as! NSMutableCharacterSet
         allowedCharacterSet.removeCharactersInString("\n:#/?@!$&'()*+,;=")
         allowedCharacterSet.addCharactersInString("[]")
@@ -52,16 +52,41 @@ extension String {
         return randomString
     }
     
+    func parametersFromQueryString() -> Dictionary<String, String> {
+        var parameters = Dictionary<String, String>()
+        
+        let scanner = NSScanner(string: self)
+        
+        var key: NSString?
+        var value: NSString?
+        
+        while !scanner.atEnd {
+            key = nil
+            scanner.scanUpToString("=", intoString: &key)
+            scanner.scanString("=", intoString: nil)
+            
+            value = nil
+            scanner.scanUpToString("&", intoString: &value)
+            scanner.scanString("&", intoString: nil)
+            
+            if let key = key as? String, let value = value as? String {
+                parameters.updateValue(value, forKey: key)
+            }
+        }
+        
+        return parameters
+    }
+    
 }
 
 extension Dictionary {
     
-    func urlEncodedQueryStringWithEncoding() -> String {
+    func urlEncodedQueryString() -> String {
         var parts = [String]()
         
         for (key, value) in self {
-            let keyString: String = "\(key)".urlEncodedStringWithEncoding()
-            let valueString: String = "\(value)".urlEncodedStringWithEncoding()
+            let keyString: String = "\(key)".urlEncodedString()
+            let valueString: String = "\(value)".urlEncodedString()
             let query: String = "\(keyString)=\(valueString)"
             parts.append(query)
         }
@@ -77,22 +102,16 @@ class LoginViewController: UIViewController, LoginViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         appDelegate.loginView = self
-        
-        let urlParts: [String:String] = [
-            "client_id": "0fe88ac59c5d6d50642a",
-            "redirect_uri": "github://authenticated",
-            "scope": scopes.joinWithSeparator(" "),
-            "state": String.random()
-        ]
-        
-        let urlString = "https://github.com/login/oauth/authorize?" + urlParts.urlEncodedQueryStringWithEncoding()
-        let url = NSURL (string: urlString)
-        let requestObj = NSURLRequest(URL: url!)
-        
         addGradient()
         
-        webView.loadRequest(requestObj)
+        do {
+            let request = try Authorizer().buildWebFlow()
+            webView.loadRequest(request)
+        } catch {
+            print(error)
+        }
     }
 
     override func didReceiveMemoryWarning() {

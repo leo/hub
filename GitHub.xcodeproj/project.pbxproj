@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B388A82B1CE88DD0003EDBBD /* Authorizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B388A82A1CE88DD0003EDBBD /* Authorizer.swift */; };
 		B3CE1F9C1CE740A400E339D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CE1F9B1CE740A400E339D2 /* AppDelegate.swift */; };
 		B3CE1F9E1CE740A400E339D2 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CE1F9D1CE740A400E339D2 /* FirstViewController.swift */; };
 		B3CE1FA01CE740A400E339D2 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3CE1F9F1CE740A400E339D2 /* SecondViewController.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B388A82A1CE88DD0003EDBBD /* Authorizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Authorizer.swift; sourceTree = "<group>"; };
 		B3CE1F981CE740A400E339D2 /* GitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3CE1F9B1CE740A400E339D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3CE1F9D1CE740A400E339D2 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				B3CE1FA61CE740A400E339D2 /* LaunchScreen.storyboard */,
 				B3CE1FA41CE740A400E339D2 /* Assets.xcassets */,
 				B3CE1FA91CE740A400E339D2 /* Info.plist */,
+				B388A82A1CE88DD0003EDBBD /* Authorizer.swift */,
 			);
 			path = GitHub;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3CE1FB41CE74A7A00E339D2 /* ViewController.swift in Sources */,
+				B388A82B1CE88DD0003EDBBD /* Authorizer.swift in Sources */,
 				B3CE1FB01CE7453000E339D2 /* WelcomeViewController.swift in Sources */,
 				B3CE1FA01CE740A400E339D2 /* SecondViewController.swift in Sources */,
 				B3CE1FBA1CE756D100E339D2 /* LoginViewController.swift in Sources */,

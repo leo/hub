@@ -26,8 +26,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         mainView?.loggedIn = true
+        
         loginView?.dismissViewControllerAnimated(true, completion: nil)
         welcomeView?.dismissViewControllerAnimated(true, completion: nil)
+        
+        let urlComponents = NSURLComponents(string: url.absoluteString)
+        
+        guard let queryItems = urlComponents?.queryItems else {
+            fatalError()
+        }
+        
+        do {
+            try Authorizer().requestAccessToken((queryItems[0].value)!, state: (queryItems[1].value)!)
+        } catch {
+            print(error)
+        }
         
         return true
     }
