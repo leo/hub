@@ -9,13 +9,11 @@
 import UIKit
 
 protocol MainDelegate {
-    var loggedIn: Bool { get set }
     func generateList(data: [String:AnyObject])
 }
 
 class ViewController: UITabBarController, MainDelegate {
-    
-    var loggedIn: Bool = false
+
     var connector: Connector = Connector()
 
     override func viewDidLoad() {
@@ -28,11 +26,6 @@ class ViewController: UITabBarController, MainDelegate {
     }
 
     override func viewDidAppear(animated: Bool) {
-        if loggedIn == false {
-            performSegueWithIdentifier("showWelcome", sender: nil)
-            return
-        }
-        
         do {
             try connector.loadUser(self)
         } catch {

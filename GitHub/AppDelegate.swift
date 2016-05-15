@@ -19,8 +19,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var welcomeView: UIViewController?
     var mainView: MainDelegate?
 
+    var loggedIn: Bool = false
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+
+        let initialView = loggedIn ? "Main" : "Welcome"
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let initialViewController = storyboard.instantiateViewControllerWithIdentifier(initialView) as UIViewController
+
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
+
         return true
     }
     
@@ -37,7 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print(error)
         }
         
-        mainView?.loggedIn = true
+        //mainView?.loggedIn = true
         
         //loginView?.dismissViewControllerAnimated(true, completion: nil)
         //welcomeView?.dismissViewControllerAnimated(false, completion: nil)
