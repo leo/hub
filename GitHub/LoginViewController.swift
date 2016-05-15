@@ -90,11 +90,41 @@ class LoginViewController: UIViewController, LoginViewDelegate {
         let url = NSURL (string: urlString)
         let requestObj = NSURLRequest(URL: url!)
         
+        addGradient()
+        
         webView.loadRequest(requestObj)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    func addGradient() {
+        webView.backgroundColor = UIColor.clearColor()
+        
+        let gradient: CAGradientLayer = CAGradientLayer()
+        gradient.frame.size = view.frame.size
+        
+        var gradientParts: [CGColor] = []
+        
+        let colors: [CGColor] = [
+            UIColor(colorLiteralRed: 245/255, green: 245/255, blue: 245/255, alpha: 1).CGColor,
+            UIColor(colorLiteralRed: 250/255, green: 250/255, blue: 250/255, alpha: 1).CGColor
+        ]
+        
+        for (_, color) in colors.enumerate() {
+            var i = 0
+            
+            while i < 2 {
+                gradientParts.append(color)
+                i += 1
+            }
+        }
+        
+        gradient.colors = gradientParts
+        gradient.locations = [0, 0.5, 0.5, 1]
+    
+        view.layer.insertSublayer(gradient, atIndex: 0)
     }
 
 }
