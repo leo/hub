@@ -8,17 +8,12 @@
 
 import UIKit
 
-protocol MainDelegate {
-    func generateList(data: [String:AnyObject])
-}
-
-class ViewController: UITabBarController, MainDelegate {
+class ViewController: UITabBarController {
 
     var connector: Connector = Connector()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        appDelegate.mainView = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,15 +21,16 @@ class ViewController: UITabBarController, MainDelegate {
     }
 
     override func viewDidAppear(animated: Bool) {
+        /*
         do {
             try connector.loadUser(self)
         } catch {
             fatalError(String(error))
-        }
+        }*/
     }
-    
-    func generateList(data: [String:AnyObject]) {
-        print(data)
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        print("yeah")
     }
     
 }

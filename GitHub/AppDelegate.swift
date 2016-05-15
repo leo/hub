@@ -16,9 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var loginView: UIViewController?
     var welcomeView: UIViewController?
-    var mainView: MainDelegate?
 
     var loggedIn: Bool = false
+    var segue: UIStoryboardSegue?
+
+    let connector: Connector = Connector()
+    let mainView: UIViewController = ViewController()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
@@ -40,16 +43,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let queryItems = urlComponents?.queryItems else {
             fatalError()
         }
+
+        loggedIn = true
         
         do {
-            try Connector().requestAccessToken((queryItems[0].value)!, state: (queryItems[1].value)!)
+            try connector.requestAccessToken((queryItems[0].value)!, state: (queryItems[1].value)!)
+
+            try connector.loadUser() { (json: [String : AnyObject]) in
+                guard let loginView = self.loginView else {
+                    fatalError()
+                }
+
+                self.segue = UIStoryboardSegue(identifier: "showMain", source: loginView, destination: self.mainView)
+
+                guard let segue = self.segue else {
+                    fatalError()
+                }
+
+                self.mainView.prepareForSegue(segue, sender: nil)
+                loginView.performSegueWithIdentifier("showMain", sender: nil)
+            }
         } catch {
-            print(error)
+            fatalError(String(error))
         }
-        
-        //loginView?.dismissViewControllerAnimated(true, completion: nil)
-        //welcomeView?.dismissViewControllerAnimated(false, completion: nil)
-        loginView?.performSegueWithIdentifier("showMain", sender: nil)
         
         return true
     }

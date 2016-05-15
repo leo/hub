@@ -82,8 +82,8 @@ class Connector: NSObject {
         
         task.resume()
     }
-    
-    func loadUser (view: MainDelegate) throws {
+
+    func loadUser(completion: ((json: [String : AnyObject]) -> Void)!) throws {
         let urlString = "https://api.github.com/user"
         
         guard let url = NSURL(string: urlString) else {
@@ -110,7 +110,7 @@ class Connector: NSObject {
             
             do {
                 let json = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers)
-                view.generateList(json as! [String : AnyObject])
+                completion(json: json as! [String : AnyObject])
             } catch {
                 fatalError(String(error))
             }
