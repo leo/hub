@@ -1,5 +1,5 @@
 //
-//  Authorizer.swift
+//  Connector.swift
 //  GitHub
 //
 //  Created by Leonard Lamprecht on 15/05/16.
@@ -13,7 +13,7 @@ enum AuthorizingError: ErrorType {
     case InvalidTokenRequest
 }
 
-class Authorizer: NSObject {
+class Connector: NSObject {
     
     let clientId: String = "0fe88ac59c5d6d50642a"
     let clientSecret: String = "43b9c296bde038f9efbed594556cf0ac6e137a8c"
@@ -62,9 +62,21 @@ class Authorizer: NSObject {
         request.HTTPBody = urlParts.body.dataUsingEncoding(NSUTF8StringEncoding)
         
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data: NSData?, response: NSURLResponse?, error: NSError?) in
+            guard error == nil && data != nil else {
+                fatalError("error=\(error)")
+            }
+        
+            let responseString = NSString(data: data!, encoding: NSUTF8StringEncoding) as? String
+            let params = responseString?.parametersFromQueryString()
             
+            guard let token = params?["access_token"] else {
+                fatalError("Not able to unwrap token")
+            }
+            
+            print(token)
         }
         
-        print(task)
+        task.resume()
     }
+    
 }

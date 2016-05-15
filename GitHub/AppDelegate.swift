@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         do {
-            try Authorizer().requestAccessToken((queryItems[0].value)!, state: (queryItems[1].value)!)
+            try Connector().requestAccessToken((queryItems[0].value)!, state: (queryItems[1].value)!)
         } catch {
             print(error)
         }

@@ -107,7 +107,7 @@ class LoginViewController: UIViewController, LoginViewDelegate {
         addGradient()
         
         do {
-            let request = try Authorizer().buildWebFlow()
+            let request = try Connector().buildWebFlow()
             webView.loadRequest(request)
         } catch {
             print(error)
