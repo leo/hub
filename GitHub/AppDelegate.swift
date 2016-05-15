@@ -39,8 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         mainView?.loggedIn = true
         
-        loginView?.dismissViewControllerAnimated(true, completion: nil)
-        welcomeView?.dismissViewControllerAnimated(true, completion: nil)
+        //loginView?.dismissViewControllerAnimated(true, completion: nil)
+        //welcomeView?.dismissViewControllerAnimated(false, completion: nil)
+        loginView?.performSegueWithIdentifier("showMain", sender: nil)
         
         return true
     }

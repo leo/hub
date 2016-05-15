@@ -10,19 +10,17 @@ import UIKit
 
 protocol MainDelegate {
     var loggedIn: Bool { get set }
+    func generateList(data: [String:AnyObject])
 }
 
 class ViewController: UITabBarController, MainDelegate {
     
     var loggedIn: Bool = false
+    var connector: Connector = Connector()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         appDelegate.mainView = self
-    }
-    
-    deinit {
-        events.removeObserver(self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,6 +32,16 @@ class ViewController: UITabBarController, MainDelegate {
             performSegueWithIdentifier("showWelcome", sender: nil)
             return
         }
+        
+        do {
+            try connector.loadUser(self)
+        } catch {
+            fatalError(String(error))
+        }
+    }
+    
+    func generateList(data: [String:AnyObject]) {
+        print(data)
     }
     
 }

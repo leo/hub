@@ -134,11 +134,12 @@
                     </view>
                     <connections>
                         <outlet property="webView" destination="G95-oV-1ut" id="956-yz-26U"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="showMain" id="vMz-80-qe3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PeW-eA-tNq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="1782"/>
+            <point key="canvasLocation" x="-806" y="892"/>
         </scene>
         <!--Welcome-->
         <scene sceneID="CIF-m0-2u2">
