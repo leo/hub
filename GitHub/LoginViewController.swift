@@ -79,9 +79,6 @@ class LoginViewController: UIViewController, LoginViewDelegate {
         super.viewDidLoad()
         appDelegate.loginView = self
         
-        webView.scrollView.scrollEnabled = false
-        webView.scrollView.bounces = false
-        
         let urlParts: [String:String] = [
             "client_id": "0fe88ac59c5d6d50642a",
             "redirect_uri": "github://authenticated",
