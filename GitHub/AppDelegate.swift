@@ -8,7 +8,6 @@
 
 import UIKit
 
-let events = NSNotificationCenter.defaultCenter()
 let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
 @UIApplicationMain
@@ -47,8 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch {
             print(error)
         }
-        
-        //mainView?.loggedIn = true
         
         //loginView?.dismissViewControllerAnimated(true, completion: nil)
         //welcomeView?.dismissViewControllerAnimated(false, completion: nil)
