@@ -32,6 +32,7 @@ class ViewController: UITabBarController, MainDelegate {
     override func viewDidAppear(animated: Bool) {
         if loggedIn == false {
             performSegueWithIdentifier("showWelcome", sender: nil)
+            return
         }
     }
     

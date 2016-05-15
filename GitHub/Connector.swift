@@ -13,6 +13,8 @@ enum AuthorizingError: ErrorType {
     case InvalidTokenRequest
 }
 
+let defaults = NSUserDefaults.standardUserDefaults()
+
 class Connector: NSObject {
     
     let clientId: String = "0fe88ac59c5d6d50642a"
@@ -73,7 +75,8 @@ class Connector: NSObject {
                 fatalError("Not able to unwrap token")
             }
             
-            print(token)
+            defaults.setValue(token, forKey: "api_token")
+            defaults.synchronize()
         }
         
         task.resume()

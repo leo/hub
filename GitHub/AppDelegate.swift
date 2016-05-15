@@ -25,11 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
-        mainView?.loggedIn = true
-        
-        loginView?.dismissViewControllerAnimated(true, completion: nil)
-        welcomeView?.dismissViewControllerAnimated(true, completion: nil)
-        
         let urlComponents = NSURLComponents(string: url.absoluteString)
         
         guard let queryItems = urlComponents?.queryItems else {
@@ -41,6 +36,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } catch {
             print(error)
         }
+        
+        mainView?.loggedIn = true
+        
+        loginView?.dismissViewControllerAnimated(true, completion: nil)
+        welcomeView?.dismissViewControllerAnimated(true, completion: nil)
         
         return true
     }
