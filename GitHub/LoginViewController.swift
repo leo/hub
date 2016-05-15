@@ -8,6 +8,19 @@
 
 import UIKit
 
+let scopes = [
+    "user",
+    "public_repo",
+    "repo",
+    "delete_repo",
+    "gist",
+    "admin:repo_hook",
+    "admin:org_hook",
+    "admin:org",
+    "admin:public_key",
+    "admin:gpg_key"
+]
+
 protocol LoginViewDelegate {
     func hideView()
 }
@@ -72,6 +85,7 @@ class LoginViewController: UIViewController, LoginViewDelegate {
         let urlParts: [String:String] = [
             "client_id": "0fe88ac59c5d6d50642a",
             "redirect_uri": "github://authenticated",
+            "scope": scopes.joinWithSeparator(" "),
             "state": String.random()
         ]
         
