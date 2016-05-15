@@ -75,9 +75,8 @@ class Connector: NSObject {
             guard let token = params?["access_token"] else {
                 fatalError("Not able to unwrap token")
             }
-            
-            defaults.setValue(token, forKey: "api_token")
-            defaults.synchronize()
+
+            appDelegate.token = token
         }
         
         task.resume()

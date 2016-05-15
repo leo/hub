@@ -17,7 +17,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var loginView: UIViewController?
     var welcomeView: UIViewController?
 
-    var loggedIn: Bool = false
+    var token: String? {
+        get {
+            guard let token = defaults.stringForKey("api_token") else {
+                return nil
+            }
+
+            return token
+        }
+        set {
+            defaults.setValue(newValue, forKey: "api_token")
+            defaults.synchronize()
+        }
+    }
+
+    var loggedIn: Bool {
+        get {
+            guard token != nil else {
+                return false
+            }
+
+            return true
+        }
+    }
+
     var segue: UIStoryboardSegue?
 
     let connector: Connector = Connector()
@@ -43,8 +66,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         guard let queryItems = urlComponents?.queryItems else {
             fatalError()
         }
-
-        loggedIn = true
         
         do {
             try connector.requestAccessToken((queryItems[0].value)!, state: (queryItems[1].value)!)
