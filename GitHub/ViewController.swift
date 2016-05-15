@@ -14,6 +14,12 @@ class ViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        do {
+            try connector.loadUser(insertData)
+        } catch {
+            fatalError(String(error))
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,16 +27,15 @@ class ViewController: UITabBarController {
     }
 
     override func viewDidAppear(animated: Bool) {
-        /*
-        do {
-            try connector.loadUser(self)
-        } catch {
-            fatalError(String(error))
-        }*/
+
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        print("yeah")
+        insertData(sender as! [String : AnyObject])
+    }
+
+    func insertData(data: [String : AnyObject]) {
+        print(data)
     }
     
 }

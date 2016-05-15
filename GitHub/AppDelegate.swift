@@ -82,7 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
 
                 self.mainView.prepareForSegue(segue, sender: nil)
-                loginView.performSegueWithIdentifier("showMain", sender: nil)
+                loginView.performSegueWithIdentifier("showMain", sender: json)
             }
         } catch {
             fatalError(String(error))
