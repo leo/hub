@@ -56,8 +56,14 @@ class RepositoryListController: UITableViewController {
             fatalError()
         }
 
-        guard let name = list[indexPath.row]["full_name"] else {
+        let currentItem = list[indexPath.row]
+
+        guard let name = currentItem["full_name"], let stars = currentItem["stargazers_count"]! else {
             fatalError()
+        }
+
+        if (String(stars) != "0") {
+            cell.detailTextLabel?.text = String(stars) + " stars"
         }
 
         cell.textLabel!.text = name as? String
