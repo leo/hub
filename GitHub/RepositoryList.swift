@@ -65,7 +65,7 @@ class RepositoryListController: UITableViewController {
         var detailLabel: String? = nil
 
         if (String(stars) != "0") {
-            detailLabel = String(stars) + " stars"
+            detailLabel = String(stars) + " \u{2605}"
         }
 
         cell.detailTextLabel?.text = detailLabel
