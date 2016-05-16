@@ -23,8 +23,4 @@ class RepositoryNavController: UINavigationController {
         
     }
 
-    func someAction() {
-
-    }
-
 }

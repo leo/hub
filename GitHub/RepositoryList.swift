@@ -20,7 +20,7 @@ class RepositoryListController: UITableViewController {
             try connector.loadDataOfCurrentUser("repos") { (data: AnyObject) in
                 self.repos = data
 
-                dispatch_async(dispatch_get_main_queue(),{
+                dispatch_async(dispatch_get_main_queue(), {
                     self.tableView.reloadData()
                 })
             }
@@ -28,8 +28,12 @@ class RepositoryListController: UITableViewController {
             fatalError(String(error))
         }
 
-        let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(RepositoryNavController.someAction))
+        let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(RepositoryListController.someAction))
         navigationItem.rightBarButtonItem = button
+    }
+
+    func someAction() {
+        print("yeah")
     }
 
     override func didReceiveMemoryWarning() {

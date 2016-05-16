@@ -47,7 +47,7 @@ class Connector: NSObject {
         return NSURLRequest(URL: url)
     }
     
-    func requestAccessToken(code: String, state: String) throws {
+    func requestAccessToken(code: String, state: String, completion: (() -> Void)!) throws {
         let queryItems: [String:String] = [
             "client_secret": clientSecret,
             "code": code
@@ -77,6 +77,7 @@ class Connector: NSObject {
             }
 
             appDelegate.token = token
+            completion()
         }
         
         task.resume()

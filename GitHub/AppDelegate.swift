@@ -68,8 +68,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         do {
-            try connector.requestAccessToken((queryItems[0].value)!, state: (queryItems[1].value)!)
-            self.loginView?.performSegueWithIdentifier("showMain", sender: nil)
+            try connector.requestAccessToken((queryItems[0].value)!, state: (queryItems[1].value)!, completion: {
+                self.loginView?.performSegueWithIdentifier("showMain", sender: nil)
+            })
         } catch {
             fatalError(String(error))
         }
