@@ -15,8 +15,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="repositories" id="HaM-VF-bGg">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="repoCell" id="HaM-VF-bGg">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HaM-VF-bGg" id="Fyv-s3-g9V">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -29,14 +29,11 @@
                             <outlet property="delegate" destination="yP2-iM-gEz" id="zbh-X1-2fi"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="6OL-xR-Haw"/>
-                    <connections>
-                        <outlet property="table" destination="4bR-p5-UzF" id="lfD-HB-VGn"/>
-                    </connections>
+                    <navigationItem key="navigationItem" id="hT2-Ds-Ir4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqx-yE-0di" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="898" y="-351"/>
+            <point key="canvasLocation" x="1710" y="-351"/>
         </scene>
         <!--Second-->
         <scene sceneID="wg7-f3-ORb">
@@ -90,7 +87,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
-                        <segue destination="yP2-iM-gEz" kind="relationship" relationship="viewControllers" id="bq1-KN-WQq"/>
+                        <segue destination="Mop-0x-Rhk" kind="relationship" relationship="viewControllers" id="bq1-KN-WQq"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -182,6 +179,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aGf-df-3hQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1651" y="0.0"/>
+        </scene>
+        <!--Repositories-->
+        <scene sceneID="ZvR-v3-Ecw">
+            <objects>
+                <navigationController title="Repositories" automaticallyAdjustsScrollViewInsets="NO" id="Mop-0x-Rhk" customClass="RepositoryList" customModule="GitHub" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="6OL-xR-Haw"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5jo-e9-dcK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yP2-iM-gEz" kind="relationship" relationship="rootViewController" id="gi3-2w-hQC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Abq-t4-ghA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="898" y="-351"/>
         </scene>
     </scenes>
     <resources>
