@@ -105,7 +105,7 @@ class Connector: NSObject {
                 fatalError()
             }
 
-            guard let jsonData = jsonString.dataUsingEncoding(NSASCIIStringEncoding, allowLossyConversion: false) else {
+            guard let jsonData = jsonString.dataUsingEncoding(NSASCIIStringEncoding, allowLossyConversion: true) else {
                 fatalError()
             }
 
