@@ -62,11 +62,15 @@ class RepositoryListController: UITableViewController {
             fatalError()
         }
 
+        var detailLabel: String? = nil
+
         if (String(stars) != "0") {
-            cell.detailTextLabel?.text = String(stars) + " stars"
+            detailLabel = String(stars) + " stars"
         }
 
+        cell.detailTextLabel?.text = detailLabel
         cell.textLabel!.text = name as? String
+
         return cell
     }
 
