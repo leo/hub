@@ -78,10 +78,17 @@ class RepositoryListController: UITableViewController {
         cell.detailTextLabel?.text = detailLabel
         cell.textLabel!.text = name as? String
 
-        var imageName = currentItem["private"] as! Bool == true ? "private" : "repo"
+        var imageName = "repo"
 
         if currentItem["fork"] as! Bool == true {
             imageName = "fork"
+        }
+
+        if currentItem["private"] as! Bool == true {
+            cell.backgroundColor = UIColor(red: 1.00, green: 0.98, blue: 0.92, alpha: 1.00)
+            imageName = "private"
+        } else {
+            cell.backgroundColor = UIColor.whiteColor()
         }
 
         let image: UIImage = UIImage(named: imageName)!
