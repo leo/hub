@@ -83,7 +83,7 @@ class Connector: NSObject {
     }
 
     func loadDataOfCurrentUser(kind: String, completion: ((data: AnyObject) -> Void)!) throws {
-        let urlString = "https://api.github.com/user/" + kind
+        let urlString = "https://api.github.com/user/" + kind + "?sort=pushed"
 
         guard let url = NSURL(string: urlString) else {
             throw AuthorizingError.InvalidURL
@@ -105,10 +105,12 @@ class Connector: NSObject {
                 fatalError()
             }
 
-            let jsonData = jsonString.dataUsingEncoding(NSASCIIStringEncoding, allowLossyConversion: false)
+            guard let jsonData = jsonString.dataUsingEncoding(NSASCIIStringEncoding, allowLossyConversion: false) else {
+                fatalError()
+            }
 
             do {
-                let json = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers)
+                let json = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers)
                 completion(data: json)
             } catch {
                 fatalError(String(error))
