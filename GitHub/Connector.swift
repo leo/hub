@@ -83,7 +83,7 @@ class Connector: NSObject {
     }
 
     func loadDataOfCurrentUser(kind: String, completion: ((data: AnyObject) -> Void)!) throws {
-        let urlString = "https://api.github.com/user/" + kind + "?per_page=5"
+        let urlString = "https://api.github.com/user/" + kind
 
         guard let url = NSURL(string: urlString) else {
             throw AuthorizingError.InvalidURL
