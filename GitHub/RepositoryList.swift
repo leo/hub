@@ -27,6 +27,9 @@ class RepositoryListController: UITableViewController {
         } catch {
             fatalError(String(error))
         }
+
+        let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(RepositoryNavController.someAction))
+        navigationItem.rightBarButtonItem = button
     }
 
     override func didReceiveMemoryWarning() {
