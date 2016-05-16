@@ -19,7 +19,10 @@ class RepositoryListController: UITableViewController {
         do {
             try connector.loadDataOfCurrentUser("repos") { (data: AnyObject) in
                 self.repos = data
-                self.tableView.reloadData()
+
+                dispatch_async(dispatch_get_main_queue(),{
+                    self.tableView.reloadData()
+                })
             }
         } catch {
             fatalError(String(error))
