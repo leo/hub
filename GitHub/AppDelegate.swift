@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var segue: UIStoryboardSegue?
 
     let connector: Connector = Connector()
-    let mainView: UIViewController = ViewController()
+    let mainView: UIViewController = MainViewController()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
