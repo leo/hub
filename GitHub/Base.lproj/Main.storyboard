@@ -86,8 +86,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                         <segue destination="Mop-0x-Rhk" kind="relationship" relationship="viewControllers" id="bq1-KN-WQq"/>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -184,7 +184,7 @@
         <scene sceneID="ZvR-v3-Ecw">
             <objects>
                 <navigationController title="Repositories" automaticallyAdjustsScrollViewInsets="NO" id="Mop-0x-Rhk" customClass="RepositoryNavController" customModule="GitHub" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="6OL-xR-Haw"/>
+                    <tabBarItem key="tabBarItem" title="Repositories" id="6OL-xR-Haw"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5jo-e9-dcK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
