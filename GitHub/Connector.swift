@@ -82,8 +82,8 @@ class Connector: NSObject {
         task.resume()
     }
 
-    func loadDataOfCurrentUser(kind: String, completion: ((data: [AnyObject]) -> Void)!) throws {
-        let urlString = "https://api.github.com/user/" + kind
+    func loadDataOfCurrentUser(kind: String, completion: ((data: AnyObject) -> Void)!) throws {
+        let urlString = "https://api.github.com/user/" + kind + "?per_page=5"
 
         guard let url = NSURL(string: urlString) else {
             throw AuthorizingError.InvalidURL
@@ -109,7 +109,7 @@ class Connector: NSObject {
 
             do {
                 let json = try NSJSONSerialization.JSONObjectWithData(jsonData!, options: NSJSONReadingOptions.MutableContainers)
-                completion(data: json as! [AnyObject])
+                completion(data: json)
             } catch {
                 fatalError(String(error))
             }

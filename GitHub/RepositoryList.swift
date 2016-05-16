@@ -11,14 +11,15 @@ import UIKit
 class RepositoryListController: UITableViewController {
 
     var connector: Connector = Connector()
-    var repos: [AnyObject]?
+    var repos: AnyObject?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         do {
-            try connector.loadDataOfCurrentUser("repos") { (data: [AnyObject]) in
+            try connector.loadDataOfCurrentUser("repos") { (data: AnyObject) in
                 self.repos = data
+                self.tableView.reloadData()
             }
         } catch {
             fatalError(String(error))
@@ -34,21 +35,29 @@ class RepositoryListController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        /*
-        guard let list = self.repos else {
+        if (self.repos == nil) {
+            return 0
+        }
+
+        guard let list: NSArray = self.repos as? NSArray else {
             fatalError()
-        }*/
+        }
 
-        //print(self.repos)
-
-        return 3
+        return list.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("repoCell", forIndexPath: indexPath)
 
-        //cell.textLabel!.text = repos[indexPath.row]
-        cell.textLabel!.text = "Haha"
+        guard let list: NSArray = self.repos as? NSArray else {
+            fatalError()
+        }
+
+        guard let name = list[indexPath.row]["full_name"] else {
+            fatalError()
+        }
+
+        cell.textLabel!.text = name as? String
         return cell
     }
 
