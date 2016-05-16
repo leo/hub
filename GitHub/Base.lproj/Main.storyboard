@@ -184,7 +184,7 @@
         <scene sceneID="ZvR-v3-Ecw">
             <objects>
                 <navigationController title="Repositories" automaticallyAdjustsScrollViewInsets="NO" id="Mop-0x-Rhk" customClass="RepositoryNavController" customModule="GitHub" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Repositories" id="6OL-xR-Haw"/>
+                    <tabBarItem key="tabBarItem" title="Repositories" image="first" id="6OL-xR-Haw"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5jo-e9-dcK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -201,6 +201,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="first" width="30" height="30"/>
         <image name="second" width="30" height="30"/>
     </resources>
 </document>
