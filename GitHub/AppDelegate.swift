@@ -33,11 +33,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var loggedIn: Bool {
         get {
-            guard token != nil else {
-                return false
+            if token != nil {
+                return true
             }
 
-            return true
+            return false
         }
     }
 
