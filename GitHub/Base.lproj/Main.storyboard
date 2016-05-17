@@ -93,7 +93,7 @@
         <!--Main-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController storyboardIdentifier="Main" title="Main" id="49e-Tb-3d3" customClass="MainViewController" customModule="GitHub" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Main" title="Main" modalTransitionStyle="flipHorizontal" id="49e-Tb-3d3" customClass="MainViewController" customModule="GitHub" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
