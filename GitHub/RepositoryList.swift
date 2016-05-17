@@ -56,6 +56,16 @@ class RepositoryListController: UITableViewController {
         return list.count
     }
 
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        guard let list: NSArray = self.repos as? NSArray else {
+            fatalError()
+        }
+
+        let details = list[indexPath.row]
+
+        performSegueWithIdentifier("showRepoDetails", sender: details)
+    }
+
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("repoCell", forIndexPath: indexPath)
 
