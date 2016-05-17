@@ -125,13 +125,28 @@ class Connector: NSObject {
 
             do {
                 let json = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions.MutableContainers)
-                completion(data: json)
+
+                if let message = json["message"] {
+                    if message as! String == "Bad credentials" {
+                        self.restartApp()
+                    }
+                } else {
+                    completion(data: json)
+                }
             } catch {
                 fatalError(String(error))
             }
         }
 
         task.resume()
+    }
+
+    func restartApp() {
+        defaults.removeObjectForKey("api_token")
+        defaults.synchronize()
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        appDelegate.window?.rootViewController = storyboard.instantiateInitialViewController()
     }
 
 }
