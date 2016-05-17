@@ -14,6 +14,19 @@ enum AuthorizingError: ErrorType {
     case CannotLoadToken
 }
 
+let scopes = [
+    "user",
+    "public_repo",
+    "repo",
+    "delete_repo",
+    "gist",
+    "admin:repo_hook",
+    "admin:org_hook",
+    "admin:org",
+    "admin:public_key",
+    "admin:gpg_key"
+]
+
 let defaults = NSUserDefaults.standardUserDefaults()
 
 class Connector: NSObject {
@@ -33,7 +46,7 @@ class Connector: NSObject {
         return (NSURL(string: main), body, NSURL(string: full))
     }
     
-    func buildWebFlow() throws -> NSURLRequest {
+    func buildWebFlow() throws -> NSURL? {
         let urlParts: [String:String] = [
             "redirect_uri": "github://authenticated",
             "scope": scopes.joinWithSeparator(" "),
@@ -44,7 +57,7 @@ class Connector: NSObject {
             throw AuthorizingError.InvalidURL
         }
         
-        return NSURLRequest(URL: url)
+        return url
     }
     
     func requestAccessToken(code: String, state: String, completion: (() -> Void)!) throws {

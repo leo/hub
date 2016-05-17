@@ -7,18 +7,33 @@
 //
 
 import UIKit
+import SafariServices
 
 protocol WelcomeViewDelegate {
     func hideView()
+    func performSegueWithIdentifier(identifier: String, sender: AnyObject?)
+
+    var safariView: SFSafariViewController? { get set }
 }
 
 class WelcomeViewController: UIViewController, WelcomeViewDelegate {
     
     @IBOutlet weak var submitButton: UIButton!
 
+    let connector: Connector = Connector()
+    var safariView: SFSafariViewController?
+    var webFlowUrl: NSURL?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         appDelegate.welcomeView = self
+
+        do {
+            let url = try connector.buildWebFlow()
+            webFlowUrl = url
+        } catch {
+            fatalError(String(error))
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -26,7 +41,12 @@ class WelcomeViewController: UIViewController, WelcomeViewDelegate {
     }
 
     @IBAction func loginButtonTapped() {
-        performSegueWithIdentifier("showLogin", sender: nil)
+        guard let url = webFlowUrl else {
+            return
+        }
+
+        safariView = SFSafariViewController(URL: url)
+        presentViewController(safariView!, animated: true, completion: nil)
     }
 
 }

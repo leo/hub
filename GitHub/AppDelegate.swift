@@ -14,8 +14,7 @@ let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var loginView: UIViewController?
-    var welcomeView: UIViewController?
+    var welcomeView: WelcomeViewDelegate?
 
     var token: String? {
         get {
@@ -69,7 +68,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         do {
             try connector.requestAccessToken((queryItems[0].value)!, state: (queryItems[1].value)!, completion: {
-                self.loginView?.performSegueWithIdentifier("showMain", sender: nil)
+                self.welcomeView?.safariView?.dismissViewControllerAnimated(true, completion: {
+                    self.welcomeView?.performSegueWithIdentifier("showMain", sender: nil)
+                })
             })
         } catch {
             fatalError(String(error))
