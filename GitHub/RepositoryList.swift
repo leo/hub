@@ -14,37 +14,34 @@ class RepositoryListController: UITableViewController {
     var repos: AnyObject?
 
     @IBAction func refresh(sender: UIRefreshControl) {
-        do {
-            try connector.loadDataOfCurrentUser("repos") { (data: AnyObject) in
-                self.repos = data
-
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.tableView.reloadData()
-                    sender.endRefreshing()
-                })
-            }
-        } catch {
-            fatalError(String(error))
-        }
+        loadData(sender)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        loadData(nil)
+
+        let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(RepositoryListController.someAction))
+        navigationItem.rightBarButtonItem = button
+    }
+
+    func loadData(sender: UIRefreshControl?) {
         do {
             try connector.loadDataOfCurrentUser("repos") { (data: AnyObject) in
                 self.repos = data
 
                 dispatch_async(dispatch_get_main_queue(), {
                     self.tableView.reloadData()
+
+                    if sender != nil {
+                        sender?.endRefreshing()
+                    }
                 })
             }
         } catch {
             fatalError(String(error))
         }
-
-        let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(RepositoryListController.someAction))
-        navigationItem.rightBarButtonItem = button
     }
 
     func someAction() {
