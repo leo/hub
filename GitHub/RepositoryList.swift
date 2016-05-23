@@ -57,15 +57,27 @@ class RepositoryListController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if (self.repos == nil) {
-            return 0
+        if (repos != nil) {
+            guard let list: NSArray = self.repos as? NSArray else {
+                fatalError()
+            }
+
+            return list.count
         }
 
-        guard let list: NSArray = self.repos as? NSArray else {
-            fatalError()
-        }
+        let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.bounds.size.width, height: view.bounds.size.height))
 
-        return list.count
+        label.text = "No data available.\nPlease pull down to refresh."
+        label.textColor = UIColor.grayColor()
+        label.numberOfLines = 0
+        label.textAlignment = NSTextAlignment.Center
+        label.font = UIFont.systemFontOfSize(19)
+        label.sizeToFit()
+
+        tableView.backgroundView = label
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+
+        return 0
     }
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
