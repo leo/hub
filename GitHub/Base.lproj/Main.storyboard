@@ -121,7 +121,7 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" image="bar-profile" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="Profile" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -201,7 +201,7 @@
         <scene sceneID="ZvR-v3-Ecw">
             <objects>
                 <navigationController title="Repositories" automaticallyAdjustsScrollViewInsets="NO" id="Mop-0x-Rhk" customClass="RepositoryNavController" customModule="GitHub" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Repositories" image="bar-repositories" id="6OL-xR-Haw"/>
+                    <tabBarItem key="tabBarItem" title="Repositories" image="Repositories" id="6OL-xR-Haw"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5jo-e9-dcK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -218,7 +218,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bar-profile" width="13" height="26"/>
-        <image name="bar-repositories" width="20" height="27"/>
+        <image name="Profile" width="13" height="26"/>
+        <image name="Repositories" width="20" height="27"/>
     </resources>
 </document>

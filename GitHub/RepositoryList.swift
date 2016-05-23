@@ -12,6 +12,7 @@ class RepositoryListController: UITableViewController {
 
     var connector: Connector = Connector()
     var repos: AnyObject?
+    var errorMessage: UITextView?
 
     @IBOutlet weak var refresher: UIRefreshControl!
 
@@ -19,6 +20,7 @@ class RepositoryListController: UITableViewController {
         super.viewDidLoad()
 
         loadData(nil)
+
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
 
         let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(RepositoryListController.someAction))
@@ -32,6 +34,7 @@ class RepositoryListController: UITableViewController {
 
                 dispatch_async(dispatch_get_main_queue(), {
                     self.tableView.reloadData()
+                    self.errorMessage?.hidden = true
 
                     if sender != nil {
                         sender?.endRefreshing()
@@ -60,29 +63,26 @@ class RepositoryListController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let errorMessage: UITextView = UITextView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
+        errorMessage = UITextView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
 
-        errorMessage.text = "No data available.\nPlease pull down to refresh."
-        errorMessage.textColor = UIColor.grayColor()
-        errorMessage.textAlignment = NSTextAlignment.Center
-        errorMessage.font = UIFont.systemFontOfSize(19)
-        errorMessage.editable = false
+        errorMessage?.text = "No data available.\nPlease pull down to refresh."
+        errorMessage?.textColor = UIColor.grayColor()
+        errorMessage?.textAlignment = NSTextAlignment.Center
+        errorMessage?.font = UIFont.systemFontOfSize(19)
+        errorMessage?.editable = false
 
-        var topOffset: CGFloat = (errorMessage.bounds.size.height - errorMessage.contentSize.height * errorMessage.zoomScale) / 2.0
+        var topOffset: CGFloat = (errorMessage!.bounds.size.height - errorMessage!.contentSize.height * errorMessage!.zoomScale) / 2.0
 
         topOffset = topOffset < 0.0 ? 0.0 : topOffset
         topOffset -= refresher.bounds.height
 
-        errorMessage.contentOffset = CGPoint(x: 0, y: -topOffset)
+        errorMessage?.contentOffset = CGPoint(x: 0, y: -topOffset)
 
-        if (repos != nil) {
-            guard let list: NSArray = self.repos as? NSArray else {
-                fatalError()
-            }
-
+        if let list: NSArray = self.repos as? NSArray {
+            errorMessage?.hidden = true
             return list.count
         } else {
-            tableView.addSubview(errorMessage)
+            tableView.addSubview(errorMessage!)
         }
 
         return 0
@@ -120,15 +120,15 @@ class RepositoryListController: UITableViewController {
         cell.detailTextLabel?.text = detailLabel
         cell.textLabel!.text = name as? String
 
-        var imageName = "repo"
+        var imageName = "Normal"
 
         if currentItem["fork"] as! Bool == true {
-            imageName = "fork"
+            imageName = "Fork"
         }
 
         if currentItem["private"] as! Bool == true {
             cell.backgroundColor = UIColor(red: 1.00, green: 0.98, blue: 0.92, alpha: 1.00)
-            imageName = "private"
+            imageName = "Private"
         } else {
             cell.backgroundColor = UIColor.whiteColor()
         }
