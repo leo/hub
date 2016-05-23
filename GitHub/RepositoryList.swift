@@ -13,14 +13,11 @@ class RepositoryListController: UITableViewController {
     var connector: Connector = Connector()
     var repos: AnyObject?
 
-    @IBAction func refresh(sender: UIRefreshControl) {
-        loadData(sender)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         loadData(nil)
+        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
 
         let button = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: #selector(RepositoryListController.someAction))
         navigationItem.rightBarButtonItem = button
@@ -44,6 +41,10 @@ class RepositoryListController: UITableViewController {
         }
     }
 
+    @IBAction func refresh(sender: UIRefreshControl) {
+        loadData(sender)
+    }
+
     func someAction() {
         print("yeah")
     }
@@ -62,6 +63,7 @@ class RepositoryListController: UITableViewController {
                 fatalError()
             }
 
+            tableView.backgroundView = nil
             return list.count
         }
 
@@ -75,7 +77,6 @@ class RepositoryListController: UITableViewController {
         label.sizeToFit()
 
         tableView.backgroundView = label
-        tableView.separatorStyle = UITableViewCellSeparatorStyle.None
 
         return 0
     }
