@@ -96,7 +96,7 @@ class Connector: NSObject {
         task.resume()
     }
 
-    func loadDataOfCurrentUser(kind: String, completion: ((data: AnyObject) -> Void)!) throws {
+    func loadDataOfCurrentUser(kind: String, completion: ((data: AnyObject?) -> Void)!) throws {
         let urlString = "https://api.github.com/user/" + kind + "?sort=pushed"
 
         guard let url = NSURL(string: urlString) else {
@@ -112,15 +112,16 @@ class Connector: NSObject {
 
         let task = NSURLSession.sharedSession().dataTaskWithRequest(request) { (data: NSData?, response: NSURLResponse?, error: NSError?) in
             guard error == nil && data != nil else {
-                fatalError("error=\(error)")
+                print(error)
+                return completion(data: nil)
             }
 
             guard let jsonString = NSString(data: data!, encoding: NSUTF8StringEncoding) as? String else {
-                fatalError()
+                return completion(data: nil)
             }
 
             guard let jsonData = jsonString.dataUsingEncoding(NSASCIIStringEncoding, allowLossyConversion: true) else {
-                fatalError()
+                return completion(data: nil)
             }
 
             do {

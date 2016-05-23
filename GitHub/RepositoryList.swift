@@ -29,12 +29,20 @@ class RepositoryListController: UITableViewController {
 
     func loadData(sender: UIRefreshControl?) {
         do {
-            try connector.loadDataOfCurrentUser("repos") { (data: AnyObject) in
-                self.repos = data
+            try connector.loadDataOfCurrentUser("repos") { (data: AnyObject?) in
+
+                if let repos = data {
+                    self.repos = repos
+                } else {
+                    self.showErrorMessage()
+                }
 
                 dispatch_async(dispatch_get_main_queue(), {
                     self.tableView.reloadData()
-                    self.errorMessage?.hidden = true
+
+                    if let message = self.errorMessage {
+                        message.removeFromSuperview()
+                    }
 
                     if sender != nil {
                         sender?.endRefreshing()
@@ -54,15 +62,7 @@ class RepositoryListController: UITableViewController {
         print("yeah")
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func showErrorMessage() {
         errorMessage = UITextView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
 
         errorMessage?.text = "No data available.\nPlease pull down to refresh."
@@ -78,11 +78,20 @@ class RepositoryListController: UITableViewController {
 
         errorMessage?.contentOffset = CGPoint(x: 0, y: -topOffset)
 
+        tableView.addSubview(errorMessage!)
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let list: NSArray = self.repos as? NSArray {
-            errorMessage?.hidden = true
             return list.count
-        } else {
-            tableView.addSubview(errorMessage!)
         }
 
         return 0
