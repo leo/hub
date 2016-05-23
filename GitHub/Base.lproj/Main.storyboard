@@ -71,6 +71,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="hT2-Ds-Ir4"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="uyz-yz-AKq">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <attributedString key="attributedTitle"/>
+                        <connections>
+                            <action selector="refresh:" destination="yP2-iM-gEz" eventType="valueChanged" id="2qw-fn-DBb"/>
+                        </connections>
+                    </refreshControl>
                     <connections>
                         <segue destination="0S9-Oy-jX5" kind="show" identifier="showRepoDetails" id="ueF-XV-x1a"/>
                     </connections>
