@@ -79,7 +79,7 @@
             </objects>
             <point key="canvasLocation" x="1710" y="-351"/>
         </scene>
-        <!--Second-->
+        <!--Profile-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="GitHub" customModuleProvider="target" sceneMemberID="viewController">
@@ -113,7 +113,7 @@
                             <constraint firstAttribute="centerY" secondItem="zEq-FU-wV5" secondAttribute="centerY" id="qzY-Ky-pLD"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="bar-profile" id="cPa-gy-q4n"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
@@ -210,7 +210,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bar-repositories" width="12" height="16"/>
-        <image name="second" width="30" height="30"/>
+        <image name="bar-profile" width="13" height="26"/>
+        <image name="bar-repositories" width="20" height="27"/>
     </resources>
 </document>
