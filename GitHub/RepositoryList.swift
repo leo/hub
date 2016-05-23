@@ -60,16 +60,6 @@ class RepositoryListController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        /*
-        if (repos != nil) {
-            guard let list: NSArray = self.repos as? NSArray else {
-                fatalError()
-            }
-
-            tableView.backgroundView = nil
-            return list.count
-        }*/
-
         let errorMessage: UITextView = UITextView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
 
         errorMessage.text = "No data available.\nPlease pull down to refresh."
@@ -84,7 +74,16 @@ class RepositoryListController: UITableViewController {
         topOffset -= refresher.bounds.height
 
         errorMessage.contentOffset = CGPoint(x: 0, y: -topOffset)
-        tableView.addSubview(errorMessage)
+
+        if (repos != nil) {
+            guard let list: NSArray = self.repos as? NSArray else {
+                fatalError()
+            }
+
+            return list.count
+        } else {
+            tableView.addSubview(errorMessage)
+        }
 
         return 0
     }
