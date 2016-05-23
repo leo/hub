@@ -79,6 +79,7 @@
                         </connections>
                     </refreshControl>
                     <connections>
+                        <outlet property="refresher" destination="uyz-yz-AKq" id="Jdq-Yl-hd4"/>
                         <segue destination="0S9-Oy-jX5" kind="show" identifier="showRepoDetails" id="ueF-XV-x1a"/>
                     </connections>
                 </tableViewController>

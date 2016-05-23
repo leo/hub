@@ -13,6 +13,8 @@ class RepositoryListController: UITableViewController {
     var connector: Connector = Connector()
     var repos: AnyObject?
 
+    @IBOutlet weak var refresher: UIRefreshControl!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -58,6 +60,7 @@ class RepositoryListController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        /*
         if (repos != nil) {
             guard let list: NSArray = self.repos as? NSArray else {
                 fatalError()
@@ -65,18 +68,23 @@ class RepositoryListController: UITableViewController {
 
             tableView.backgroundView = nil
             return list.count
-        }
+        }*/
 
-        let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: view.bounds.size.width, height: view.bounds.size.height))
+        let errorMessage: UITextView = UITextView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
 
-        label.text = "No data available.\nPlease pull down to refresh."
-        label.textColor = UIColor.grayColor()
-        label.numberOfLines = 0
-        label.textAlignment = NSTextAlignment.Center
-        label.font = UIFont.systemFontOfSize(19)
-        label.sizeToFit()
+        errorMessage.text = "No data available.\nPlease pull down to refresh."
+        errorMessage.textColor = UIColor.grayColor()
+        errorMessage.textAlignment = NSTextAlignment.Center
+        errorMessage.font = UIFont.systemFontOfSize(19)
+        errorMessage.editable = false
 
-        tableView.backgroundView = label
+        var topOffset: CGFloat = (errorMessage.bounds.size.height - errorMessage.contentSize.height * errorMessage.zoomScale) / 2.0
+
+        topOffset = topOffset < 0.0 ? 0.0 : topOffset
+        topOffset -= refresher.bounds.height
+
+        errorMessage.contentOffset = CGPoint(x: 0, y: -topOffset)
+        tableView.addSubview(errorMessage)
 
         return 0
     }
