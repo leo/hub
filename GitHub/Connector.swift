@@ -28,15 +28,19 @@ let scopes = [
 ]
 
 let defaults = NSUserDefaults.standardUserDefaults()
+let info: NSDictionary = NSBundle.mainBundle().infoDictionary!
 
 class Connector: NSObject {
     
-    let clientId: String = "0fe88ac59c5d6d50642a"
-    let clientSecret: String = "43b9c296bde038f9efbed594556cf0ac6e137a8c"
+    let clientId: String = info.objectForKey("GitHubClientID") as! String
+    let clientSecret: String = info.objectForKey("GitHubClientSecret") as! String
     
     func generateURL(parts: Dictionary<String, String>, path: String) -> (main: NSURL?, body: String, full: NSURL?) {
         var urlParts = parts
         urlParts["client_id"] = clientId
+
+        print(clientId)
+        print(clientSecret)
         
         let main = "https://github.com/login/oauth/" + path
         let body = urlParts.urlEncodedQueryString()

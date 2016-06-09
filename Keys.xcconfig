@@ -1,0 +1,10 @@
+//
+//  Environment.xcconfig
+//  GitHub
+//
+//  Created by Leonard Lamprecht on 09/06/16.
+//  Copyright © 2016 Leo Lamprecht. All rights reserved.
+//
+
+GITHUB_CLIENT_ID = "0fe88ac59c5d6d50642a"
+GITHUB_CLIENT_SECRET = "43b9c296bde038f9efbed594556cf0ac6e137a8c"
