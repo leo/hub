@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>GitHubClientSecret</key>
-	<string>${GITHUB_CLIENT_SECRET}</string>
+	<string>$(GITHUB_CLIENT_SECRET)</string>
 	<key>GitHubClientID</key>
-	<string>${GITHUB_CLIENT_ID}</string>
+	<string>$(GITHUB_CLIENT_ID)</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
