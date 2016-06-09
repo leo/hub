@@ -11,16 +11,8 @@ An iOS client for GitHub. Tab bar icon width: 20px
 5. Once it's open, immediately create a new file called "Keys.xcconfig" in the root directory. It should look similar to this and hold the keys of the temporary application you've registered in GitHub's web interface (make sure to replace the values surrounded by "<" and ">" with the actualy keys):
 
 ```swift
-//
-//  Keys.xcconfig
-//  GitHub
-//
-//  Created by Leo Lamprecht on 09/06/16.
-//  Copyright © 2016 Leo Lamprecht. All rights reserved.
-//
-
-GITHUB_CLIENT_ID = <your-applications-client-id>
-GITHUB_CLIENT_SECRET = <your-applications-client-secret>
+GITHUB_CLIENT_ID = "Your application's client id"
+GITHUB_CLIENT_SECRET = "Your application's client secret"
 ```
 
 After changing the values and saving the file, you can start making changes! :boom:
