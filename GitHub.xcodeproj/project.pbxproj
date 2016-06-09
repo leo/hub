@@ -25,7 +25,7 @@
 		B388A82C1CE9BD6E003EDBBD /* RepositoryNav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryNav.swift; sourceTree = "<group>"; };
 		B388A8301CE9BFFC003EDBBD /* Second.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Second.swift; sourceTree = "<group>"; };
 		B388A8321CE9C135003EDBBD /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		B3AF5A5A1D0987D8005CEC7A /* Keys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Keys.xcconfig; sourceTree = "<group>"; };
+		B3AF5A5B1D099CC4005CEC7A /* Keys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Keys.xcconfig; sourceTree = "<group>"; };
 		B3CE1F981CE740A400E339D2 /* GitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3CE1F9B1CE740A400E339D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3CE1F9D1CE740A400E339D2 /* RepositoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryList.swift; sourceTree = "<group>"; };
@@ -63,7 +63,7 @@
 		B3CE1F8F1CE740A400E339D2 = {
 			isa = PBXGroup;
 			children = (
-				B3AF5A5A1D0987D8005CEC7A /* Keys.xcconfig */,
+				B3AF5A5B1D099CC4005CEC7A /* Keys.xcconfig */,
 				B3CE1F9A1CE740A400E339D2 /* GitHub */,
 				B3CE1F991CE740A400E339D2 /* Products */,
 			);
@@ -199,7 +199,6 @@
 /* Begin XCBuildConfiguration section */
 		B3CE1FAA1CE740A400E339D2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B3AF5A5A1D0987D8005CEC7A /* Keys.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -245,7 +244,6 @@
 		};
 		B3CE1FAB1CE740A400E339D2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B3AF5A5A1D0987D8005CEC7A /* Keys.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

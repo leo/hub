@@ -1,8 +1,8 @@
 //
 //  RepositoryList.swift
-//  GitHub
+//  Hub
 //
-//  Created by Leonard Lamprecht on 16/05/16.
+//  Created by Leo Lamprecht on 16/05/16.
 //  Copyright © 2016 Leo Lamprecht. All rights reserved.
 //
 
