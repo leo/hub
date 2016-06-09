@@ -34,7 +34,7 @@
         <!--First-->
         <scene sceneID="gLG-aQ-8ZW">
             <objects>
-                <tableViewController title="First" id="yP2-iM-gEz" customClass="RepositoryListController" customModule="GitHub" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="First" id="yP2-iM-gEz" customClass="RepositoryListController" customModule="Hub" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="4bR-p5-UzF">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,7 +90,7 @@
         <!--Profile-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="GitHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="Hub" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -130,7 +130,7 @@
         <!--Main-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController storyboardIdentifier="Main" title="Main" modalTransitionStyle="flipHorizontal" id="49e-Tb-3d3" customClass="MainViewController" customModule="GitHub" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="Main" title="Main" modalTransitionStyle="flipHorizontal" id="49e-Tb-3d3" customClass="MainViewController" customModule="Hub" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -149,7 +149,7 @@
         <!--Welcome-->
         <scene sceneID="CIF-m0-2u2">
             <objects>
-                <viewController storyboardIdentifier="Welcome" title="Welcome" id="xNx-oa-mZY" customClass="WelcomeViewController" customModule="GitHub" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Welcome" title="Welcome" id="xNx-oa-mZY" customClass="WelcomeViewController" customModule="Hub" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hfZ-k6-95Y"/>
                         <viewControllerLayoutGuide type="bottom" id="eDB-CF-Pc5"/>
@@ -200,7 +200,7 @@
         <!--Repositories-->
         <scene sceneID="ZvR-v3-Ecw">
             <objects>
-                <navigationController title="Repositories" automaticallyAdjustsScrollViewInsets="NO" id="Mop-0x-Rhk" customClass="RepositoryNavController" customModule="GitHub" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController title="Repositories" automaticallyAdjustsScrollViewInsets="NO" id="Mop-0x-Rhk" customClass="RepositoryNavController" customModule="Hub" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Repositories" image="Repositories" id="6OL-xR-Haw"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="5jo-e9-dcK">
