@@ -68,9 +68,12 @@ extension Dictionary {
         var parts = [String]()
 
         for (key, value) in self {
+            let newValue: String = "\(value)".stringByReplacingOccurrencesOfString("\"", withString: "", options: NSStringCompareOptions.LiteralSearch, range: nil)
+
             let keyString: String = "\(key)".urlEncodedString()
-            let valueString: String = "\(value)".urlEncodedString()
+            let valueString: String = "\(newValue)".urlEncodedString()
             let query: String = "\(keyString)=\(valueString)"
+
             parts.append(query)
         }
 

@@ -37,10 +37,7 @@ class Connector: NSObject {
     
     func generateURL(parts: Dictionary<String, String>, path: String) -> (main: NSURL?, body: String, full: NSURL?) {
         var urlParts = parts
-        urlParts["client_id"] = clientId
-
-        print(clientId)
-        print(clientSecret)
+        urlParts["client_id"] = String(clientId)
         
         let main = "https://github.com/login/oauth/" + path
         let body = urlParts.urlEncodedQueryString()
