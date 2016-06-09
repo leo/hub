@@ -23,4 +23,4 @@ GITHUB_CLIENT_ID = <your-applications-client-id>
 GITHUB_CLIENT_SECRET = <your-applications-client-secret>
 ```
 
-After changing the values and saving the file, you can start making changes!
+After changing the values and saving the file, you can start making changes! :boom:
