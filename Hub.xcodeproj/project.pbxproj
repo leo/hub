@@ -26,7 +26,7 @@
 		B388A8301CE9BFFC003EDBBD /* Second.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Second.swift; sourceTree = "<group>"; };
 		B388A8321CE9C135003EDBBD /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B3AF5A5B1D099CC4005CEC7A /* Keys.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Keys.xcconfig; sourceTree = "<group>"; };
-		B3CE1F981CE740A400E339D2 /* GitHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3CE1F981CE740A400E339D2 /* Hub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3CE1F9B1CE740A400E339D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3CE1F9D1CE740A400E339D2 /* RepositoryList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryList.swift; sourceTree = "<group>"; };
 		B3CE1FA21CE740A400E339D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -72,7 +72,7 @@
 		B3CE1F991CE740A400E339D2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B3CE1F981CE740A400E339D2 /* GitHub.app */,
+				B3CE1F981CE740A400E339D2 /* Hub.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,9 +95,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B3CE1F971CE740A400E339D2 /* GitHub */ = {
+		B3CE1F971CE740A400E339D2 /* Hub */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B3CE1FAC1CE740A400E339D2 /* Build configuration list for PBXNativeTarget "GitHub" */;
+			buildConfigurationList = B3CE1FAC1CE740A400E339D2 /* Build configuration list for PBXNativeTarget "Hub" */;
 			buildPhases = (
 				B3CE1F941CE740A400E339D2 /* Sources */,
 				B3CE1F951CE740A400E339D2 /* Frameworks */,
@@ -107,9 +107,9 @@
 			);
 			dependencies = (
 			);
-			name = GitHub;
+			name = Hub;
 			productName = GitHub;
-			productReference = B3CE1F981CE740A400E339D2 /* GitHub.app */;
+			productReference = B3CE1F981CE740A400E339D2 /* Hub.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -128,7 +128,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B3CE1F931CE740A400E339D2 /* Build configuration list for PBXProject "GitHub" */;
+			buildConfigurationList = B3CE1F931CE740A400E339D2 /* Build configuration list for PBXProject "Hub" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -141,7 +141,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B3CE1F971CE740A400E339D2 /* GitHub */,
+				B3CE1F971CE740A400E339D2 /* Hub */,
 			);
 		};
 /* End PBXProject section */
@@ -288,7 +288,7 @@
 				INFOPLIST_FILE = GitHub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = im.leo.GitHub;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Hub;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -301,7 +301,7 @@
 				INFOPLIST_FILE = GitHub/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = im.leo.GitHub;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Hub;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -309,7 +309,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B3CE1F931CE740A400E339D2 /* Build configuration list for PBXProject "GitHub" */ = {
+		B3CE1F931CE740A400E339D2 /* Build configuration list for PBXProject "Hub" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B3CE1FAA1CE740A400E339D2 /* Debug */,
@@ -318,7 +318,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B3CE1FAC1CE740A400E339D2 /* Build configuration list for PBXNativeTarget "GitHub" */ = {
+		B3CE1FAC1CE740A400E339D2 /* Build configuration list for PBXNativeTarget "Hub" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B3CE1FAD1CE740A400E339D2 /* Debug */,

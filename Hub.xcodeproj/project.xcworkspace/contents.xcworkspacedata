@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:GitHub.xcodeproj">
+      location = "self:/Users/leo/Git/hub/Hub.xcodeproj">
    </FileRef>
 </Workspace>
