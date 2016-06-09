@@ -43,8 +43,6 @@ class Connector: NSObject {
         let body = urlParts.urlEncodedQueryString()
         
         let full = main + "?" + body
-
-        print(full)
   
         return (NSURL(string: main), body, NSURL(string: full))
     }
