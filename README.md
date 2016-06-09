@@ -1,6 +1,6 @@
-# github
+# Hub
 
-An iOS client for GitHub. Tab bar icon width: 20px
+This was my first try to build a native version of GitHub for iOS devices. I mostly tried doing this because their mobile version is missing a lot of the features of the Desktop version and also because it helped me a lot to understand how Swift  works. But it's not finished yet!
 
 ## Contributing
 
