@@ -2,6 +2,10 @@
 
 This was my first try to build a native version of GitHub for iOS devices. I mostly tried doing this because their mobile version is missing a lot of the features of the Desktop version and also because it helped me a lot to understand how Swift  works. But it's not finished yet!
 
+<p align="center">
+  <img src="https://cloud.githubusercontent.com/assets/6170607/15961811/3b269bee-2f07-11e6-9b72-0f3f0f5f9e6e.png" width="400">
+</p>
+
 ## Contributing
 
 1. Sign up for [GitHub's Developer Program](https://developer.github.com/program/), register a new application [here](https://github.com/settings/developers) and make sure that the "Authorization callback URL" is "github://authenticated". The name and the other details aren't important.
